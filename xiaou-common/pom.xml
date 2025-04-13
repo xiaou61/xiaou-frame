@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xiaou-common-web</module>
+        <module>xiaou-common-mybatis-plus</module>
     </modules>
 
     <properties>
