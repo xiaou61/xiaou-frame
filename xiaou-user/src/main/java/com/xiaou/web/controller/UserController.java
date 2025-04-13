@@ -1,8 +1,8 @@
-package com.xiaou.user.controller;
+package com.xiaou.web.controller;
 
-import com.xiaou.user.entity.dto.UserDto;
-import com.xiaou.user.entity.req.UserReq;
-import com.xiaou.user.service.UserService;
+import com.xiaou.web.entity.dto.UserDto;
+import com.xiaou.web.service.UserService;
+import com.xiaou.web.entity.req.UserReq;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.PostMapping;

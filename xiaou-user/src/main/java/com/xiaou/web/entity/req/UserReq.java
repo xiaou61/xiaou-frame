@@ -1,4 +1,4 @@
-package com.xiaou.user.entity.req;
+package com.xiaou.web.entity.req;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

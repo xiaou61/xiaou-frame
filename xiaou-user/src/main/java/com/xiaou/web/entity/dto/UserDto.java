@@ -1,4 +1,4 @@
-package com.xiaou.user.entity.dto;
+package com.xiaou.web.entity.dto;
 
 import lombok.Data;
 
