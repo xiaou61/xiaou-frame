@@ -10,6 +10,10 @@
     </parent>
 
     <artifactId>xiaou-common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>xiaou-common-web</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
