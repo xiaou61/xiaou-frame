@@ -1,7 +1,10 @@
 package com.xiaou.web.controller;
 
 import com.xiaou.common.R;
+import com.xiaou.entity.PageReqDto;
+import com.xiaou.entity.PageRespDto;
 import com.xiaou.web.entity.dto.UserDto;
+import com.xiaou.web.entity.po.UserPo;
 import com.xiaou.web.service.UserService;
 import com.xiaou.web.entity.req.UserReq;
 import jakarta.annotation.Resource;
@@ -26,5 +29,11 @@ public class UserController {
     public R delete(@PathVariable Integer id) {
         int delete = userService.delete(id);
         return R.ok(delete);
+    }
+
+    @GetMapping("/list")
+    public R<PageRespDto<UserPo>> getPage(@RequestBody PageReqDto dto) {
+        PageRespDto<UserPo> userPage = userService.getUserPage(dto);
+        return R.ok(userPage);
     }
 }
