@@ -15,11 +15,18 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserMapper userMapper;
+
     @Override
     public int addUser(UserDto userDto) {
         UserPo userPo = new UserPo();
-        BeanUtils.copyProperties(userDto,userPo);
+        BeanUtils.copyProperties(userDto, userPo);
         int count = userMapper.insert(userPo);
         return count;
+    }
+
+    @Override
+    public int delete(Integer id) {
+        int i = userMapper.deleteById(id);
+        return i;
     }
 }

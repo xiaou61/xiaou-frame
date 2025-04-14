@@ -6,10 +6,7 @@ import com.xiaou.web.service.UserService;
 import com.xiaou.web.entity.req.UserReq;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -23,5 +20,11 @@ public class UserController {
         BeanUtils.copyProperties(userReq, userDto);
         int i = userService.addUser(userDto);
         return R.ok(i);
+    }
+
+    @DeleteMapping("/{id}")
+    public R delete(@PathVariable Integer id) {
+        int delete = userService.delete(id);
+        return R.ok(delete);
     }
 }
