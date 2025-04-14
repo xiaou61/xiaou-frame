@@ -3,6 +3,7 @@ package com.xiaou.web.controller;
 import com.xiaou.common.R;
 import com.xiaou.entity.PageReqDto;
 import com.xiaou.entity.PageRespDto;
+import com.xiaou.web.convert.UserConverter;
 import com.xiaou.web.entity.dto.UserDto;
 import com.xiaou.web.entity.po.UserPo;
 import com.xiaou.web.service.UserService;
@@ -19,8 +20,7 @@ public class UserController {
 
     @PostMapping
     public R<Integer> insert(@RequestBody UserReq userReq) {
-        UserDto userDto = new UserDto();
-        BeanUtils.copyProperties(userReq, userDto);
+        UserDto userDto = UserConverter.INSTANCE.convertReqToDto(userReq);
         int i = userService.addUser(userDto);
         return R.ok(i);
     }

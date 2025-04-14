@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiaou.entity.PageReqDto;
 import com.xiaou.entity.PageRespDto;
+import com.xiaou.web.convert.UserConverter;
 import com.xiaou.web.entity.dto.UserDto;
 import com.xiaou.web.service.UserService;
 import com.xiaou.web.entity.po.UserPo;
@@ -23,8 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(UserDto userDto) {
-        UserPo userPo = new UserPo();
-        BeanUtils.copyProperties(userDto, userPo);
+        UserPo userPo = UserConverter.INSTANCE.convertDtoToUserPo(userDto);
         int count = userMapper.insert(userPo);
         return count;
     }
