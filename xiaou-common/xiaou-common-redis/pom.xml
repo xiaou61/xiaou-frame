@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.xiaou</groupId>
-        <artifactId>xiaou-frame</artifactId>
+        <artifactId>xiaou-common</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>xiaou-common</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>xiaou-common-web</module>
-        <module>xiaou-common-mybatis-plus</module>
-        <module>xiaou-common-redis</module>
-    </modules>
+    <artifactId>xiaou-common-redis</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
