@@ -29,3 +29,8 @@ spring:
           slow-sql-millis: 2000
         wall:
           enabled: true
+
+#自定义打印插件
+sql:
+  beauty:
+    show: true
