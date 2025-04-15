@@ -11,4 +11,6 @@ public interface UserService {
     int delete(Integer id);
 
     PageRespDto<UserPo> getUserPage(PageReqDto pageReqDto);
+
+    UserPo getUserById(Integer id);
 }

@@ -12,6 +12,7 @@ import com.xiaou.web.entity.po.UserPo;
 import com.xiaou.web.mapper.UserMapper;
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 
@@ -44,5 +45,11 @@ public class UserServiceImpl implements UserService {
         queryWrapper.eq("delete_flag", 0);
         IPage<UserPo> userPoIPage = userMapper.selectPage(page, queryWrapper);
         return new PageRespDto<>(pageReqDto.getPageNum(), pageReqDto.getPageSize(), userPoIPage.getTotal(), userPoIPage.getRecords());
+    }
+
+    @Override
+    @Cacheable(cacheNames = "user", key = "'getUserById' + #id")
+    public UserPo getUserById(Integer id) {
+        return userMapper.selectById(id);
     }
 }

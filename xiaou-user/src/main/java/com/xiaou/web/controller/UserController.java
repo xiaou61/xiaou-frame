@@ -9,6 +9,7 @@ import com.xiaou.web.entity.po.UserPo;
 import com.xiaou.web.entity.req.UserReq;
 import com.xiaou.web.service.UserService;
 import jakarta.annotation.Resource;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -34,5 +35,11 @@ public class UserController {
     public R<PageRespDto<UserPo>> getPage(@RequestBody PageReqDto dto) {
         PageRespDto<UserPo> userPage = userService.getUserPage(dto);
         return R.ok(userPage);
+    }
+
+    @GetMapping("/{id}")
+    public R<UserPo> getUserById(@PathVariable Integer id) {
+        UserPo user = userService.getUserById(id);
+        return R.ok(user);
     }
 }
