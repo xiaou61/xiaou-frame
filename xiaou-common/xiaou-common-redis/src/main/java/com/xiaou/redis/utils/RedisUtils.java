@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedisUtils {
-	@Autowired
+    @Autowired
     private RedisTemplate redisTemplate;
 
     /**
@@ -85,17 +85,22 @@ public class RedisUtils {
         redisTemplate.delete(keys);
     }
 
+    public boolean del(String key) {
+        return redisTemplate.delete(key);
+    }
+
     /**
      * 设置分布式锁
      *
-     * @param key     键，可以用用户主键
-     * @param value   值，可以传requestId，可以保证锁不会被其他请求释放，增加可靠性
-     * @param expire  锁的时间(秒)
+     * @param key    键，可以用用户主键
+     * @param value  值，可以传requestId，可以保证锁不会被其他请求释放，增加可靠性
+     * @param expire 锁的时间(秒)
      * @return 设置成功为 true
      */
     public <K, V> Boolean setNx(K key, V value, long expire) {
-        return redisTemplate.opsForValue().setIfAbsent(key, value, expire, TimeUnit.SECONDS);
+        return redisTemplate.opsForValue().setIfAbsent(key, value, expire, TimeUnit.MILLISECONDS);
     }
+
 
     /**
      * 设置分布式锁，有等待时间
@@ -123,7 +128,8 @@ public class RedisUtils {
 
     /**
      * 释放分布式锁
-     * @param key 锁
+     *
+     * @param key   锁
      * @param value 值，可以传requestId，可以保证锁不会被其他请求释放，增加可靠性
      * @return 成功返回true, 失败返回false
      */
