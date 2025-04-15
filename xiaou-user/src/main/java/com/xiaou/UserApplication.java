@@ -7,7 +7,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableCaching
 public class UserApplication {
 
 

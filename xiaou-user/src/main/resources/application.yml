@@ -51,3 +51,7 @@ mybatis-plus:
       logic-delete-field: delete_flag
       logic-delete-value: 1
       logic-not-delete-value: 0
+
+
+logging:
+  config: classpath:log4j-spring.xml
