@@ -6,9 +6,9 @@ import com.xiaou.web.entity.dto.UserDto;
 import com.xiaou.web.entity.po.UserPo;
 
 public interface UserService {
-    int addUser(UserDto userDto);
+    Integer addUser(UserDto userDto);
 
-    int delete(Integer id);
+    Integer delete(Integer id);
 
     PageRespDto<UserPo> getUserPage(PageReqDto pageReqDto);
 

@@ -15,6 +15,7 @@
         <module>xiaou-common-web</module>
         <module>xiaou-common-mybatis-plus</module>
         <module>xiaou-common-redis</module>
+        <module>xiaou-common-log</module>
     </modules>
 
     <properties>

@@ -24,14 +24,14 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public int addUser(UserDto userDto) {
+    public Integer addUser(UserDto userDto) {
         UserPo userPo = UserConverter.INSTANCE.convertDtoToUserPo(userDto);
         int count = userMapper.insert(userPo);
         return count;
     }
 
     @Override
-    public int delete(Integer id) {
+    public Integer delete(Integer id) {
         int i = userMapper.deleteById(id);
         return i;
     }

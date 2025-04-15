@@ -21,7 +21,7 @@ public class UserController {
     @PostMapping
     public R<Integer> insert(@RequestBody UserReq userReq) {
         UserDto userDto = UserConverter.INSTANCE.convertReqToDto(userReq);
-        int i = userService.addUser(userDto);
+        Integer i = userService.addUser(userDto);
         return R.ok(i);
     }
 

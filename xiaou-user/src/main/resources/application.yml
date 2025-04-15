@@ -53,5 +53,4 @@ mybatis-plus:
       logic-not-delete-value: 0
 
 
-logging:
-  config: classpath:log4j-spring.xml
+
